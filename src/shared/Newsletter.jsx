@@ -3,7 +3,7 @@ import emailjs from "emailjs-com";
 
 import "./newsletter.css";
 import { Container, Row, Col } from "reactstrap";
-import maleTourist from "../assets/images/male-tourist.png";
+import maleTourist from "../assets/images/male-tourist2.png";
 
 const NewsLetter = () => {
   const [email, setEmail] = useState("");
@@ -15,13 +15,13 @@ const NewsLetter = () => {
     // Send email using EmailJS
     emailjs
       .send(
-        "service_vs4p32a",
-        "template_5v37nk3",
+        "service_qssjnmg",
+        "template_qorjxcg",
         {
           to_email: email,
           message: "Thank you for subscribing!",
         },
-        "2jw80cdomum4L3vvG"
+        "JJ6mrpd8izd7gnPKH"
       )
       .then(
         (result) => {

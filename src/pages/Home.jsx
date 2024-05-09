@@ -1,12 +1,15 @@
 import React from "react";
 import "../styles/home.css";
+import { AuthContext } from "../Context/AuthContext";
+import { useContext } from "react";
 import { Container, Row, Col } from "reactstrap";
 import heroImg from "../assets/images/hero-img01.jpg";
 import heroImg02 from "../assets/images/hero-img02.jpg";
 import heroVideo from "../assets/images/hero-video.mp4";
 import worldImg from "../assets/images/world.png";
-import experienceImg from "../assets/images/experience.png";
-
+import experienceImg from "../assets/images/experience2.png";
+import useFetch from "../hooks/useFetch";
+import { BASE_URL } from "../utils/config";
 import Subtitle from "../shared/Subtitle";
 
 import SearchBar from "../shared/SearchBar";
@@ -15,6 +18,7 @@ import FeaturedTourList from "../components/Featured-tours/FeaturedTourList";
 import MasonryImagesGallery from "../components/Image-gallery/MasonryImagesGallery";
 import Testimonials from "../components/Testimonial/Testimonials";
 import Newsletter from "../shared/Newsletter";
+
 const Home = () => {
   return (
     <>
@@ -22,14 +26,29 @@ const Home = () => {
       <section>
         <Container>
           <Row>
+            <Col lg="2">
+              <div className="hero__img-box mt-5">
+                <img src={heroImg} alt="" />
+              </div>
+            </Col>
+            <Col lg="2">
+              <div className="hero__img-box hero__video-box mt-4">
+                <video src={heroVideo} alt="" autoPlay muted loop />
+              </div>
+            </Col>
+            <Col lg="2">
+              <div className="hero__img-box ">
+                <img src={heroImg02} alt="" />
+              </div>
+            </Col>
             <Col lg="6">
               <div className="hero__content">
                 <div className="hero__subtitle d-flex align-items-center">
-                  <Subtitle subtitle={"Know Before You Go"} />
+                  <Subtitle subtitle={"Get Ready to Explore"} />
                   <img src={worldImg} alt="" />
                 </div>
                 <h1>
-                  Every journey unlocks the door to cherished 
+                  Every journey unlocks the door to cherished
                   <span className="highlight"> Memories </span>
                 </h1>
                 <p>
@@ -41,22 +60,6 @@ const Home = () => {
                   customized to your trips
                   <br></br>
                 </p>
-              </div>
-            </Col>
-
-            <Col lg="2">
-              <div className="hero__img-box">
-                <img src={heroImg} alt="" />
-              </div>
-            </Col>
-            <Col lg="2">
-              <div className="hero__img-box hero__video-box mt-4">
-                <video src={heroVideo} alt="" autoPlay muted  loop/>
-              </div>
-            </Col>
-            <Col lg="2">
-              <div className="hero__img-box mt-5">
-                <img src={heroImg02} alt="" />
               </div>
             </Col>
 
@@ -103,22 +106,22 @@ const Home = () => {
                   With our all experience <br /> we will serve you
                 </h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Drawing from our extensive experience, we are committed to
                   <br />
-                  Quas aliquam, hic tempora inventore suscipit unde.
+                  providing exceptional service tailored just for you.
                 </p>
               </div>
               <div className="counter__wrapper d-flex align-items-center gap-5">
                 <div className="counter__box">
-                  <span>12k+</span>
+                  <span>170+</span>
                   <h6>Successfull trip</h6>
                 </div>
                 <div className="counter__box">
-                  <span>2k+</span>
+                  <span>200+</span>
                   <h6>Regular clients</h6>
                 </div>
                 <div className="counter__box">
-                  <span>15</span>
+                  <span>2</span>
                   <h6>Years experience</h6>
                 </div>
               </div>
@@ -152,7 +155,7 @@ const Home = () => {
       {/* gallery section end */}
 
       {/* testimonial section start */}
-      <section>
+      {/* <section>
         <Container>
           <Row>
             <Col lg="12">
@@ -164,7 +167,7 @@ const Home = () => {
             </Col>
           </Row>
         </Container>
-      </section>
+      </section> */}
       {/* testimonial section end */}
       <Newsletter />
     </>
@@ -172,3 +175,4 @@ const Home = () => {
 };
 
 export default Home;
+

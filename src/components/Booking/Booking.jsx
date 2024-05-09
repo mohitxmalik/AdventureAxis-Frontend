@@ -18,7 +18,7 @@ const Booking = ({ tour, avgRating }) => {
         tourName: title,
         fullName: user?.username,
         phone: 0,
-        guestSize: 0,
+        guestSize: 1,
         price: 0,
         bookAt: ''
     })
